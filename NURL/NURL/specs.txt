@@ -1,1 +1,15 @@
-﻿
+﻿1) Récupérer la source d'une page web depuis une URL.
+	11) l'afficher
+	12) l'écrire dans un document défini par l'utilisateur
+2) Tester le temps de réponse du programme pour écrire la source dans un fichier.
+	21) tester le nombre de fois que l'utilisateur le veux (X fois)
+	22) afficher les X temps
+	23) Calcul d'une moyenne des temps
+	24) Afficher la moyenne
+3) Gestion des arguments
+	31) Récupérer les noms de fichier/url/nombre de test dans les arguments passer par l'utilisateur
+		-url url (passe l'url)
+		-save doc (passe le document de sauvegarde)
+		-times nbtest (passe le nombre de test)
+		-avg (moyenne du nombre de test)
+		

@@ -50,5 +50,8 @@
     <None Include="packages.config" />
     <None Include="specs.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
