@@ -51,7 +51,8 @@
     <None Include="specs.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="ClassTest.cs" />
+    <Compile Include="ClassNURL.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
