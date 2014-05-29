@@ -17,9 +17,9 @@ namespace NURL
 	{
 		public static void Main(string[] args)
 		{
-				ClassNURL nurl = new ClassNURL();
-				Uri myuri;
-			Console.WriteLine(Uri.TryCreate("",UriKind.RelativeOrAbsolute,out myuri));
+			GestionArguments ga = new GestionArguments(args);
+			ga.Gestion();
+			Console.WriteLine("Fin");
 			Console.ReadLine();
 			
 		}

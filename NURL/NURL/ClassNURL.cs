@@ -17,7 +17,7 @@ namespace NURL
 	{
 
 		public string GetSource(string url){
-			if ((url==null) && (!IsURL(url))){
+			if ((url!=null) && (IsURL(url))){
 				var web = new System.Net.WebClient();
 				return web.DownloadString(url);
 			}
@@ -30,7 +30,7 @@ namespace NURL
 			request.Method = "HEAD";
 			var response = (System.Net.HttpWebResponse)request.GetResponse();
 			
-			return( response.StatusCode == System.Net.HttpStatusCode.OK);
+				return(response.StatusCode == System.Net.HttpStatusCode.OK);
 			}
 			catch(Exception e){
 				Console.WriteLine(e.ToString());

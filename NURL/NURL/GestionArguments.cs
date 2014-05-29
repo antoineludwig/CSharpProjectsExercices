@@ -30,11 +30,6 @@ namespace NURL
 			args=_args;
 		}
 		
-		//		[TestCase(new string[]={"get -url http://www.perdu.com/ "},true)]
-//		[TestCase("get -url http://www.perdu.com/ -save c:\abc.json",true)]
-//		[TestCase("test -url http://www.perdu.com/ -times 5 ",true)]
-//		[TestCase(" test -url http://www.perdu.com/ -times 5 -avg ",true)]
-		
 		public bool VerifieArguments(){
 			ClassNURL n = new ClassNURL();
 			
@@ -42,20 +37,26 @@ namespace NURL
 				return false;
 			
 			//3 premiers arguments
-			if(args[1].Equals("get",StringComparison.OrdinalIgnoreCase)){
+			if(args[0].Equals("get",StringComparison.OrdinalIgnoreCase)){
 				get=true;
-				if(args[2].Equals("-url",StringComparison.OrdinalIgnoreCase)){
-					if(n.IsURL(args[3]))
+				if(args[1].Equals("-url",StringComparison.OrdinalIgnoreCase)){
+					if(n.IsURL(args[2])){
 						url=true;
+					}else{
+						return false;
+					}
 				}else{
 					return false;
 				}
 			}
-			else if(args[1].Equals("test",StringComparison.OrdinalIgnoreCase)){
+			else if(args[0].Equals("test",StringComparison.OrdinalIgnoreCase)){
 				test=true;
-				if(args[2].Equals("-url",StringComparison.OrdinalIgnoreCase)){
-					if(n.IsURL(args[3]))
+				if(args[1].Equals("-url",StringComparison.OrdinalIgnoreCase)){
+					if(n.IsURL(args[2])){
 						url=true;
+					}else{
+						return false;
+					}
 				}else{
 					return false;
 				}
@@ -66,9 +67,9 @@ namespace NURL
 			//autres arguments
 			if(args.Length>3){
 				if(get){
-					if(args[4].Equals("save",StringComparison.OrdinalIgnoreCase)){
+					if(args[3].Equals("-save",StringComparison.OrdinalIgnoreCase)){
 						save=true;
-						if(n.IsFichier(args[5])){
+						if(n.IsFichier(args[4])){
 							fic=true;
 							return true;
 						}else{
@@ -79,12 +80,12 @@ namespace NURL
 					}
 				}
 				if(test){
-					if(args[4].Equals("times",StringComparison.OrdinalIgnoreCase)){
+					if(args[3].Equals("-times",StringComparison.OrdinalIgnoreCase)){
 						times=true;
 						int i;
-						if(Int32.TryParse(args[5], out i)){
+						if(Int32.TryParse(args[4], out i)){
 							if(args.Length==6){
-								if(args[6].Equals("-avg",StringComparison.OrdinalIgnoreCase)){
+								if(args[5].Equals("-avg",StringComparison.OrdinalIgnoreCase)){
 									avg=true;
 									return true;
 								}else{
