@@ -53,6 +53,8 @@
   <ItemGroup>
     <Compile Include="ClassTest.cs" />
     <Compile Include="ClassNURL.cs" />
+    <Compile Include="GestionArguments.cs" />
+    <Compile Include="Program.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
