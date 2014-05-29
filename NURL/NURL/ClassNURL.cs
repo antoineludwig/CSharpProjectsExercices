@@ -7,6 +7,7 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using System.Net;
 
 namespace NURL
 {
@@ -26,10 +27,10 @@ namespace NURL
 		
 		public bool IsURL(string url){
 			try{
-			var request = (System.Net.HttpWebRequest)System.Net.WebRequest.Create(url);
+			HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;
 			request.Method = "HEAD";
-			var response = (System.Net.HttpWebResponse)request.GetResponse();
-			
+			HttpWebResponse response = request.GetResponse() as HttpWebResponse;
+			response.Close();
 				return(response.StatusCode == System.Net.HttpStatusCode.OK);
 			}
 			catch(Exception e){
@@ -37,6 +38,7 @@ namespace NURL
 				return false;
 			}
 		}
+		
 		
 		public double[] getTime(string url,int nb){
 			double[] lestemps = new double[nb];
