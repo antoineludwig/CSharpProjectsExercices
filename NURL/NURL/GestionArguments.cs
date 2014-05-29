@@ -117,14 +117,14 @@ namespace NURL
 				}
 				if(get && save && url){
 					string s = n.GetSource(args[2]);
-					n.EcritureFichier(args[5],s);
+					n.EcritureFichier(args[4],s);
 				}
 				if(test && times){
-					double[] lestemps=n.getTime(args[2],int.Parse(args[5]));
+					double[] lestemps=n.getTime(args[2],int.Parse(args[4]));
 					n.AfficheTemps(lestemps);
 				}
 				if(test && times && avg){
-					double[] lestemps=n.getTime(args[2],int.Parse(args[5]));
+					double[] lestemps=n.getTime(args[2],int.Parse(args[4]));
 					n.calculAVG(lestemps);
 				}
 			}else{

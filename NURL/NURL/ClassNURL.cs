@@ -8,6 +8,7 @@
  */
 using System;
 using System.Net;
+using System.IO;
 
 namespace NURL
 {
@@ -64,18 +65,31 @@ namespace NURL
 		}
 		
 		public void EcritureFichier(string source,string text){
-			System.IO.File.WriteAllText(@source, text);
+				FileStream fs = null;
+				StreamWriter sw = null;
+				try{
+					using(fs = new FileStream(source,FileMode.Open)){
+						using(sw = new StreamWriter(fs)){
+							sw.Write(text);	
+						}
+					}
+				}catch(Exception e){
+					Console.WriteLine(e.ToString());
+				}
 		}
 		
 		public bool IsFichier(string nomfichier){
 			System.IO.FileStream fic;
+			bool canwrite=false;
 			try{
 			fic = System.IO.File.Open (nomfichier,System.IO.FileMode.Open);
 			}catch(Exception e){
 				Console.WriteLine(e.ToString());
 				return false;
 			}
-			return fic.CanWrite;
+			canwrite= fic.CanWrite;
+			fic.Close();
+			return canwrite;
 		}
 		
 		
