@@ -112,20 +112,20 @@ namespace NURL
 		public void Gestion(){
 			if(VerifieArguments()){
 				ClassNURL n = new ClassNURL();
-				if(get && url){
+				if(get && url && !save){
 					n.AfficheSource(args[2]);
 				}
 				if(get && save && url){
 					string s = n.GetSource(args[2]);
 					n.EcritureFichier(args[4],s);
 				}
-				if(test && times){
+				if(test && times && !avg){
 					double[] lestemps=n.getTime(args[2],int.Parse(args[4]));
 					n.AfficheTemps(lestemps);
 				}
 				if(test && times && avg){
 					double[] lestemps=n.getTime(args[2],int.Parse(args[4]));
-					n.calculAVG(lestemps);
+					n.AfficheMoy(lestemps);
 				}
 			}else{
 				Console.WriteLine("Erreur dans les arguments");

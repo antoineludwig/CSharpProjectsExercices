@@ -105,12 +105,12 @@ namespace NURL
 		public void AfficheTemps(double[] lestemps){
 			foreach (double temp in lestemps)
 			{
-				Console.WriteLine(temp.ToString());
+				Console.WriteLine(temp.ToString() + "ms");
 			}
 		}
 		
 		public void AfficheMoy(double[] lestemps){
-			Console.WriteLine(calculAVG(lestemps));
+			Console.WriteLine(calculAVG(lestemps) + "ms");
 		}
 	}
 }
