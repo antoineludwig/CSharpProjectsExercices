@@ -88,33 +88,33 @@ namespace NURL
 			Assert.IsFalse(b,"Test renvoie false car fichier non saisissable");
 		}
 		
-//		//TEST GESTIONARGUMENTS
-//		[Test]
-//		//test get
-//		[TestCase(new string[]={"get -url http://www.perdu.com/ "},true)]
-//		[TestCase("get -url http://www.perdu.com/ -save c:\abc.json",true)]
-//		[TestCase("test -url http://www.perdu.com/ -times 5 ",true)]
-//		[TestCase(" test -url http://www.perdu.com/ -times 5 -avg ",true)]
-//		[TestCase("get -url wrong ",false)]
-//		[TestCase("get -durl http://www.perdu.com/ ",false)]
-//		[TestCase("getd -url http://www.perdu.com/ -save c:\abc.json",false)]
-//		[TestCase("get -url http://www.perdu.com/ -save rrr",false)]
-//		[TestCase("get -url http://www.perdu.com/ -savedzz c:\abc.json",false)]
-//		[TestCase("test -url http://www.perdu.com/ -times 5 ",false)]
-//		[TestCase("test -urdl http://www.perdu.com/ -times 5 ",false)]
-//		[TestCase("testd -url http://www.perdu.com/ -times 5 ",false)]
-//		[TestCase("test -url http://www.perdu.com/ -timesd 5 ",false)]
-//		[TestCase("test -url wrong -timesd 5 ",false)]
-//		[TestCase(" testz -url http://www.perdu.com/ -times 5 -avg ",false)]
-//		[TestCase(" test -urls http://www.perdu.com/ -timesd 5 -avg ",false)]
-//		[TestCase(" test -url http://www.perdu.com/ -times 5 -avgd ",false)]
-//		[TestCase(" test -url wrong -times 5 -avgd ",false)]
-//		public void TestArguments(string[] args, bool err){
-//			var nurl = new ClassNURL();
-//			
-//			bool b = nurl.GestionArguments(args);
-//			Assert.AreEqual(b,err,"Gestion des arguments");
-//		}
+		//TEST GESTIONARGUMENTS
+		[Test]
+		//test get
+		[TestCase(new string[] {"get", "-url", "http://www.perdu.com/"},true)]
+		[TestCase(new string[] {"get", "-url", "http://www.perdu.com/", "-save", "c:\abc.json"},true)]
+		[TestCase(new string[] {"test", "-url", "http://www.perdu.com/", "-times", "5"},true)]
+		[TestCase(new string[] {"test", "-url", "http://www.perdu.com/", "-times", "5", "-avg"},true)]
+		[TestCase(new string[] {"get", "-url", "wrong"},false)]
+		[TestCase(new string[] {"get","-durl", "http://www.perdu.com/"},false)]
+		[TestCase(new string[] {"getd", "-url", "http://www.perdu.com/", "-save", "c:\abc.json"},false)]
+		[TestCase(new string[] {"get", "-url","http://www.perdu.com/", "-save", "rrr"},false)]
+		[TestCase(new string[] {"get", "-url", "http://www.perdu.com/", "-savedzz", "c:\abc.json"},false)]
+		[TestCase(new string[] {"test", "-url", "http://www.perdu.com/", "-times", "5"},false)]
+		[TestCase(new string[] {"test", "-urdl", "http://www.perdu.com/", "-times", "5"},false)]
+		[TestCase(new string[] {"testd", "-url", "http://www.perdu.com/", "-times", "5"},false)]
+		[TestCase(new string[] {"test", "-url", "http://www.perdu.com/", "-timesd", "5"},false)]
+		[TestCase(new string[] {"test", "-url", "wrong", "-timesd", "5"},false)]
+		[TestCase(new string[] {" testz", "-url", "http://www.perdu.com/", "-times", "5", "-avg"},false)]
+		[TestCase(new string[] {" test", "-urls", "http://www.perdu.com/", "-timesd", "5", "-avg"},false)]
+		[TestCase(new string[] {" test", "-url", "http://www.perdu.com/", "-times","5", "-avgd"},false)]
+		[TestCase(new string[] {" test", "-url", "wrong", "-times", "5", "-avgd "},false)]
+		public void TestArguments(string[] args, bool err){
+			var nurl = new ClassNURL();
+			
+			bool b = nurl.GestionArguments(args);
+			Assert.AreEqual(b,err,"Gestion des arguments");
+		}
 	}
 }
 
